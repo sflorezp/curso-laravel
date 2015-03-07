@@ -18,6 +18,10 @@ class PersonalController extends BaseController{
              echo "Error";
     }   
     
+    public function getEliminar(){
+        echo "Eliminando";
+    }
+    
 }
 
     
