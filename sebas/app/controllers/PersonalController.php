@@ -19,7 +19,7 @@ class PersonalController extends BaseController{
     }   
     
     public function getEliminar(){
-        echo "Eliminando";
+        echo "Eliminando esta cosa";
     }
     
 }
