@@ -1,7 +1,7 @@
 <?php
 class PersonalController extends BaseController{
     
-    public function getRegistrar($tipo, $nombre){
+    public function getRegistraPersona($tipo, $nombre){ //para acceder por la URL sería registrar-persona
         echo "Hola {$nombre} eres una {$tipo}";
     }
      public function getRegistrar2($tipo){
@@ -21,6 +21,9 @@ class PersonalController extends BaseController{
     public function getEliminar(){
         echo "Eliminando esta cosa";
     }
+    
+       
+    
     
 }
 
