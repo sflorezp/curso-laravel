@@ -7,7 +7,7 @@ Route::get('/', function()
 
 Route::get('/prueba', function()
 {
-	return View::make('prueba');
+	return View::make('ejemplo');
 });
 
 Route::controller('personal','PersonalController');
