@@ -9,7 +9,7 @@
         
     </head>    
     <body>
-        <button onclick="ms.saludar()">Saludar</button>
+    <button onclick="ms.saludar()">Saludar</button>
         <button onclick="ms.cambiarColorFondo('green')">Verde</button>
         <button onclick="ms.cambiarColorFondo('red')">Rojo</button>
         <button onclick="ms.ocultarParrafoConId()">OcultarConId</button>
@@ -21,12 +21,7 @@
         <button onclick="ms.alertify()">Mensaje de Alertify</button>
         <p id="1">Esto es un Parrafo1</p>
         <p id="2">Esto es un Parrafo2</p>
-         <input type="password" class="form-control" id="password">
-        <script type="text/javascript">
-         $("#password").complexify({}, callback(valid, complexity){
-         alert("Password complexity: " + complexity);
-         });
-        </script>
+        
     </body>
 </html>
     

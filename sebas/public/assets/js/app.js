@@ -1,5 +1,5 @@
-/*
-function menor_edad() {
+
+/*function menor_edad() {
     edad = prompt("Ingrese su Edad");
     if(edad<18) {
         alert("No puede entrar");
@@ -8,9 +8,7 @@ function menor_edad() {
     
 }*/
 
-
-/*
-name = prompt("Ingrese su Nombre");
+/*name = prompt("Ingrese su Nombre");
 alert("usted se llama" + name);
 
 edad = prompt("Ingrese su Edad");
@@ -19,9 +17,9 @@ if(edad>18){
 } else {
     while(edad<18) {
       edad = prompt("Ingrese su Edad");      
-    }    
-} 
-*/
+    } 
+    location.href="http://www.google.com";  
+} */
 
 /*var persona = {
     nombre: "Sebas",
@@ -34,7 +32,7 @@ alert(persona.nombre);*/
 var managerScreen = managerScreen || {}; /*Voy a Crear una referencia de un objeto y en caso de que no exista hacer esas funciones*/
 managerScreen = {
     cambiarColorFondo : function(color) {
-        /*document.body.style.background = color;*/
+        document.body.style.background = color;
         $("body").css('background',color);
     },  
     saludar : function() {
@@ -55,6 +53,7 @@ managerScreen = {
            ps[i].style.display='block';            
         }        
     },
+
       /*ocultarTodosElementos: function(tag) {
         var ps = document.getElementsByTagName(tag);
         for ( i = 0; i < ps.length; i++) {
@@ -69,8 +68,8 @@ managerScreen = {
     },
     alertify: function() {
         alertify.log("Notification", "Success", 10000);
-        alertify.log("Error", "Error", 7000);
-        alertify.log("Notification", "Success", 50000);
+        alertify.log("Error", "Error", 900);
+        alertify.log("Notification", "Success", 5000);
     }
 }
 
