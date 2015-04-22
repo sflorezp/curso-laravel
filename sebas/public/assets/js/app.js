@@ -62,6 +62,7 @@ managerScreen = {
     }*/
     ocultarTodosElementos: function(tag) {
         $("p").hide();
+        
     },
     desvanecer: function() {
         $("p").fadeToggle(2000);
