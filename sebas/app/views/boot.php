@@ -11,7 +11,7 @@
     <body>
 
   <div class="form-group">
-    <<div class="btn-toolbar" role="toolbar">
+    <div class="btn-toolbar" role="toolbar">
   <div class="btn-group">
     <button type="button" class="btn btn-default">
       <span class="glyphicon glyphicon-align-left"></span>

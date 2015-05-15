@@ -12,6 +12,10 @@ Route::get('/complexify', function() {
     return View::make('pluginsJS.complexify');
 });
 
+Route::get('/typeahead', function() {
+    return View::make('pluginsJS.typeahead');
+});
+
 Route::get('/boot', function() {
     return View::make('boot');
 });
@@ -25,7 +29,6 @@ Route::get('/test', function() {
 Route::get('/pickadate', function() {
     return View::make('pluginsJS.pickadate');
 });
-
 /*Route::get('/profile', function() {
     if(Auth::check()){
     return View::make('perfil.perfil')  PREGUNTARLE A PINEDA??
@@ -34,15 +37,6 @@ Route::get('/pickadate', function() {
         return View::make('general.login');
     }
 });*/
-
-Route::get('/profile', array('before'=>'auth', function() {
-    
-    $publicaciones = Publicacion::orderBy('id', 'desc')->get();/*Vaya a la base de datos y traigame todas las publicaciones*/
-    return View::make('perfil.perfil')
-                    ->with("nombre", Auth::user()->nombre)
-                    ->with("publicaciones", $publicaciones);
-}));
-
 Route::get('/', function() {
     if(Auth::check()){
         return Redirect::to("profile");  //Redirect::to es igual a return View::make ???
@@ -59,12 +53,9 @@ Route::post('/loguear', function() {
     }
 });
 
-Route::get('/logout', function() {
-    Auth::logout();
-    return Redirect::to("/");
+Route::group(array('before'=>'auth'), function() { //Para volver a ejecutar el filtro
+    Route::controller('personal', 'PersonalController');
+    Route::controller('clase', 'Class2Controller');
+    Route::controller('publicacion', 'PublicacionController');
+    Route::controller('profile', 'ProfileController'); //La ruta para llamar a ProfileController cuando en la URL ponen /profile
 });
-
-
-Route::controller('personal', 'PersonalController');
-Route::controller('clase', 'Class2Controller');
-Route::controller('publicacion', 'PublicacionController');

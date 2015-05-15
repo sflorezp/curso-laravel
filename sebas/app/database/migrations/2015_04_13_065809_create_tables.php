@@ -24,7 +24,9 @@ class CreateTables extends Migration {
                     $table->text('publicacion');
                     $table->boolean('tipo');
                     $table->integer('id_usuario')->unsigned();
+                    $table->integer('receptor')->unsigned();
                     $table->foreign('id_usuario')->references('id')->on('usuario');
+                    $table->foreign('receptor')->references('id')->on('usuario');
                     $table->integer('padre')->unsigned()->nullable();
                     $table->foreign('padre')->references('id')->on('publicacion');
 		});   
@@ -41,10 +43,47 @@ class CreateTables extends Migration {
                 
                 DB::table('usuario')
                     ->insert([
+                        'id' => '1',
                         'nombre' => 'Sebastián',
                         'correo' => 'sebasspicke@gmail.com',
                         'password' => Hash::make('1234')
-                    ]);            
+                    ]);
+                    DB::table('usuario')
+                    ->insert([
+                        'id' => '2',
+                        'nombre' => 'Camilo',
+                        'correo' => 'camilo@gmail.com',
+                        'password' => Hash::make('1234')
+                    ]); 
+                    DB::table('usuario')
+                     ->insert([
+                        'id' => '3',
+                        'nombre' => 'Esteban',
+                        'correo' => 'Esteban@gmail.com',
+                        'password' => Hash::make('1234')
+                    ]); 
+                     DB::table('usuario')
+                    ->insert([
+                        'id' => '4',
+                        'nombre' => 'Cogo',
+                        'correo' => 'Cogo@gmail.com',
+                        'password' => Hash::make('1234')
+                    ]);
+                     DB::table('usuario')
+                    ->insert([
+                        'id' => '5',
+                        'nombre' => 'Dosman',
+                        'correo' => 'Dosman@gmail.com',
+                        'password' => Hash::make('1234')
+                    ]);
+                DB::table('usuario')
+                    ->insert([
+                        'id' => '6',
+                        'nombre' => 'Angie',
+                        'correo' => 'Angie@gmail.com',
+                        'password' => Hash::make('1234')
+                    ]); 
+                
 	}
 
 	public function down()

@@ -5,8 +5,12 @@ class Publicacion extends Eloquent {
     
     public function freshTimestamp() {
         return date('Y-m-d h:i:s');
-    }
+    } 
     
-       
+    public static function likes($id) {
+        return Megusta::where('id_pub', $id)
+                ->count();
+    }
 }
 
+?>
