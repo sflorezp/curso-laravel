@@ -1,5 +1,5 @@
 {capture assign="left"}
-    {Auth::check()} <!--Esto Para qué?? -->
+    {Auth::check()} <!--Esto Para qué?? Para Nada-->
     <center>
         <img src="{url('assets/img/profile')}/{$foto}" width="150" height="150"></img>
     </center>
@@ -41,15 +41,26 @@
             {$publicacion->publicacion}
         </div>
         <div>
-            <span class="glyphicon glyphicon-comment"></span><span>Comentar</span> |
-            <span class="glyphicon glyphicon-thumbs-up"></span >
-            <span onclick="fb.meGusta({$publicacion->id})">Me gusta</span>
-            <span id="countMegusta" class="glyphicon glyphicon-thumbs-up"></span>{Publicacion::likes($publicacion->id)} Personas les gusta esto
+        <span class="glyphicon glyphicon-comment"></span> <span>Comentar</span> |
+        <span class="glyphicon glyphicon-thumbs-up"></span> 
+        <span 
+             id='t-me-gusta-{$publicacion->id}' 
+             style="cursor:pointer" 
+             onclick="fb.meGusta({$publicacion->id})">{$publicacion->leGustaA(Auth::user()->id)}
+        </span> |
+        <span class="glyphicon glyphicon-thumbs-up"></span> 
+        <span 
+             id="n-me-gusta-{$publicacion->id}">{Publicacion::likes($publicacion->id)}
+        </span> personas les gusta esto  
             <div id="comentarios-{$publicacion->id}">
-                 <div style="font-size: 10px; padding: 3px;"class="well well-sm col-sm-7">Esto es un comentario</div>
-            </div>    
-            <br>
-            <br>
+                {foreach $publicacion->comentarios() as $comentario}
+                    <div style="margin-bottom: 1px; font-size: 10px; padding: 3px;"class="well well-sm col-sm-7">
+                        <img width='15' height="15" src="{url('/assets/img/profile')}/{$comentario->id_usuario}.jpg">
+                        {$comentario->publicacion}
+                    </div>
+                {/foreach}
+            </div> 
+            <div style="clear: both"></div>
             <textarea id="comentario-{$publicacion->id}" rows=1 placeholder="Escribe tu Comentario ... " class="col-sm-6"></textarea>
             <button class="btn btn-success btn-sm" onclick="fb.comentar({$publicacion->id})">Comentar</button>
         </div>  
